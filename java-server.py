@@ -1,4 +1,3 @@
-# java_server.py
 import os
 import Pyro4
 from dotenv import load_dotenv
