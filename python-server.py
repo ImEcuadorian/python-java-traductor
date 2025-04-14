@@ -24,7 +24,11 @@ class PythonServer:
             java_converter = Pyro4.Proxy("PYRONAME:java.converter")
             java_code = java_converter.convert_to_java(code)
 
-            return f"🔍 Análisis Python:\n{analysis}\n\n☕ Código Java generado:\n{java_code}"
+            typescript_converter = Pyro4.Proxy("PYRONAME:typescript.converter")
+            typescript_code = typescript_converter.convert_to_typescript(code)
+
+            return f"🔍 Análisis Python:\n{analysis}\n\n☕ Código Java generado:\n{java_code} \n\n" \
+                     f"💻 Código Typescript generado:\n{typescript_code}"
 
         except Exception as e:
             return f"Error al consultar ChatGPT: {e}"
